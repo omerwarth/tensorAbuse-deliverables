@@ -5,17 +5,19 @@ A Docker-based project for ARM64, demonstrating TensorFlow model execution with 
 ## Structure
 
 ```
-tensorabuse-arm/
+attacks/
 ├── listener-container/
 │   ├── Dockerfile
-│   ├── requirements.txt
-│   └── listener.py          # Socket listener on port 9000
+│   └── listener.py
 ├── victim-container/
 │   ├── Dockerfile
-│   ├── requirements.txt
-│   ├── build_model.py       # Creates malicious TensorFlow model
-│   └── run_victim.py        # Executes the model (triggers data exfil)
-└── docker-compose.yml       # Multi-container orchestration
+│   ├── file_read/
+│   │   ├── build_model.py
+│   │   └── run_victim.py
+│   ├── code_execution/
+│   └── shell_access/
+├── requirements.txt
+└── docker-compose.yml
 ```
 
 ## How It Works
@@ -39,8 +41,8 @@ tensorabuse-arm/
 ### 1. Clone or copy the project files
 
 ```bash
-# If you have the files, navigate to the project directory
-cd tensorabuse-arm
+# Navigate to the attacks project directory
+cd attacks
 ```
 
 ### 2. Verify file structure
@@ -51,8 +53,9 @@ ls -R
 
 You should see:
 - `docker-compose.yml`
+- `requirements.txt`
 - `listener-container/` with Dockerfile and listener.py
-- `victim-container/` with Dockerfile, build_model.py, and run_victim.py
+- `victim-container/` with Dockerfile and scenario subfolders (`file_read`, `code_execution`, `shell_access`)
 
 ## Usage
 

@@ -17,8 +17,10 @@ services:
 
   victim:
     build:
-      context: ./victim-container
-      dockerfile: Dockerfile
+      # Use attacks/ as context so Dockerfile can access shared requirements
+      # and all victim scenario subfolders.
+      context: .
+      dockerfile: victim-container/Dockerfile
     container_name: tensorabuse-victim
     depends_on:
       - listener
@@ -26,6 +28,8 @@ services:
       - tensorabuse-net
     environment:
       - PYTHONUNBUFFERED=1
+      # Options: file_read, code_execution, shell_access
+      - ATTACK_SCENARIO=file_read
 
 networks:
   tensorabuse-net:
