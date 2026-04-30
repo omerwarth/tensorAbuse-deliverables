@@ -16,7 +16,7 @@ Primary working area for TensorAbuse + TensorDetect.
   - See `TensorDetect/README.md` for exact commands and options
 
 ### `attacks/`
-Additional attack-focused content outside the main framework layout.
+Additional attack-focused content outside the main framework layout. NOTE: The docker-compoose
 
 - `code_execution/`
   - Build/run scripts for code execution attack demo
