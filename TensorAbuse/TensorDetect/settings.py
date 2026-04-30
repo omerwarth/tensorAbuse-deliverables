@@ -1,0 +1,110 @@
+malicious_op_list = [
+    "ReadFile",
+    "FixedLengthRecordDataset",
+    "FixedLengthRecordDatasetV2",
+    "CSVDataset",
+    "CSVDatasetV2",
+    "ExperimentalCSVDataset",
+    "ImmutableConst",
+    "InitializeTableFromTextFile",
+    "InitializeTableFromTextFileV2",
+    "WriteFile",
+    "Save",
+    "SaveSlices",
+    "PrintV2",
+    "MatchingFiles",
+    "MatchingFilesDataset",
+    "ExperimentalMatchingFilesDataset",
+    "DebugIdentity",
+    "DebugIdentityV2",
+    "DebugIdentityV3",
+    "DistributedSave",
+    "RpcCall",
+    "RpcClient",
+    "RpcServer",
+    "RpcServerRegister",
+    "RegisterDataset",
+    "RegisterDatasetV2",
+    "DataServiceDataset",
+    "DataServiceDatasetV2",
+    "DataServiceDatasetV3",
+    "DataServiceDatasetV4",
+    "SqlDataset",
+    "LookupTableExportV2",
+    "LookupTableExport"
+]
+
+malicious_op_args = {
+    "ReadFile":["filename"],
+    
+    "LookupTableExport": ["filename"],
+    "LookupTableExportV2": ["filename"],
+    
+    "FixedLengthRecordDataset":["filenames"],
+    "FixedLengthRecordDatasetV2":["filenames"],
+    
+    "CSVDataset":["filenames"],
+    "CSVDatasetV2":["filenames"],
+    "ExperimentalCSVDataset":["filenames"],
+    
+    "ImmutableConst":["memory_region_name"],
+    
+    "InitializeTableFromTextFile":["filename"],
+    "InitializeTableFromTextFileV2":["filename"],
+    
+    "WriteFile":["filename"],
+    
+    "Save":["filename"],
+    "SaveSlices":["filename"],
+    
+    "PrintV2": ["output_stream"],
+    
+    "MatchingFiles": ["pattern"],
+    "MatchingFilesDataset": ["patterns"],
+    "ExperimentalMatchingFilesDataset": ["patterns"],
+    
+    "DebugIdentity": ["debug_urls"],
+    "DebugIdentityV2": ["debug_urls"],
+    "DebugIdentityV3": ["debug_urls"],
+    
+    "DistributedSave": ["address"],
+    "RpcCall": ["method_name"],
+    "RpcClient": ["server_address"],
+    "RpcServer": ["server_address"],
+    "RpcServerRegister": ["method_name"],
+    
+    "RegisterDataset": ["address"],
+    "RegisterDatasetV2": ["address"],
+    
+    "DataServiceDataset": ["address"],
+    "DataServiceDatasetV2": ["address"],
+    "DataServiceDatasetV3": ["address"],
+    "DataServiceDatasetV4": ["address"],
+    
+    "SqlDataset": ["data_source_name"]
+}
+
+args_info = {
+"ip_args": ["address", "server_address", "debug_urls"],
+"file_args": ["data_source_name", "patterns", "output_stream", "filename", "filenames", "memory_region_name"],
+"str_args": ["method_name", ]
+}
+
+malicious_files = [
+    "/home/*",
+    "/etc/*", 
+    "/boot/*", 
+    "/lib/*", 
+    "/var/*", 
+    "/usr/*",
+    "*/.bashrc",
+    "*/.bash_profile",
+    "*/.zshrc",
+    "*/.ssh/authorized_keys",
+    "*/tensorflow.py",
+    "*.py"
+]
+
+safe_ips = [
+    
+]

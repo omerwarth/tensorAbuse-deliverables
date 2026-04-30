@@ -1,0 +1,22 @@
+# 忽略所有文件
+/*
+
+# 不忽略的文件夹
+!/TensorDetect/
+!/attack_demo/
+!/CapAnalysis/
+!/PersistExt/
+
+
+# 不忽略的特定文件
+!API_tf_version_analysis.ipynb
+!main.py
+!README.md
+!requirements.txt
+!.gitignore
+
+# 其他可能的忽略规则
+.DS_Store
+*.pyc
+__pycache__/
+.vscode/
