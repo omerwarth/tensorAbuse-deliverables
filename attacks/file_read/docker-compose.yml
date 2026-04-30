@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  listener:
+    build:
+      context: ./listener-container
+      dockerfile: Dockerfile
+    container_name: tensorabuse-listener
+    ports:
+      - "9000:9000"
+    networks:
+      tensorabuse-net:
+        ipv4_address: 10.10.0.6
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  victim:
+    build:
+      context: ./victim-container
+      dockerfile: Dockerfile
+    container_name: tensorabuse-victim
+    depends_on:
+      - listener
+    networks:
+      - tensorabuse-net
+    environment:
+      - PYTHONUNBUFFERED=1
+
+networks:
+  tensorabuse-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.0.0/24
